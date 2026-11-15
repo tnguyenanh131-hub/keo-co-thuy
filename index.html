@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kéo Co Kiến Thức - Văn Minh Phương Tây Cổ - Trung Đại</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --bg-light: #f0f4f8;
+            --bg-dark: #161826;
+            --card-dark: #212438;
+            --item-dark: #2c304b;
+            --blue-primary: #2563eb;
+            --blue-light: #3b82f6;
+            --blue-glow: rgba(59, 130, 246, 0.4);
+            --red-primary: #dc2626;
+            --red-light: #ef4444;
+            --red-glow: rgba(239, 68, 68, 0.4);
+            --gold: #facc15;
+            --purple-btn: #7c3aed;
+            --purple-hover: #6d28d9;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Be Vietnam Pro', sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            transition: background-color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+        }
+
+        /* ================= SCREEN 1: SETUP (LIGHT THEME MATCHING IMAGE 1) ================= */
+        .setup-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 780px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 32px 36px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .setup-header {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--blue-primary);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+
+        .form-input, .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #0f172a;
+            background: #fff;
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .form-input:focus, .form-select:focus {
+            border-color: var(--blue-light);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+        }
+
+        .divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 24px 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .config-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 650px) {
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .toggle-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .toggle-btn {
+            padding: 12px 10px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f8fafc;
+            color: #475569;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 54px;
+        }
+
+        .toggle-btn small {
+            font-size: 11px;
+            font-weight: 500;
+            margin-top: 3px;
+            opacity: 0.85;
+        }
+
+        .toggle-btn.active {
+            background: #eff6ff;
+            border-color: var(--blue-light);
+            color: var(--blue-primary);
+            box-shadow: 0 2px 6px rgba(59, 130, 246, 0.12);
+        }
+
+        .setup-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 28px;
+            gap: 12px;
+        }
+
+        .btn-bank {
+            background: #f1f5f9;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-bank:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-create {
+            background: var(--blue-primary);
+            color: #fff;
+            border: none;
+            padding: 13px 28px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+            transition: all 0.2s;
+        }
+
+        .btn-create:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        /* ================= SCREEN 2: LOBBY / RULES (DARK THEME MATCHING IMAGE 2) ================= */
+        .lobby-container {
+            background: var(--card-dark);
+            width: 100%;
+            max-width: 560px;
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+            color: #fff;
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .lobby-title-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 26px;
+        }
+
+        .lobby-icon-badge {
+            width: 32px;
+            height: 40px;
+            border: 2.5px solid #60a5fa;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #60a5fa;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .lobby-title {
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--gold);
+            text-transform: uppercase;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+        }
+
+        .rules-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .rule-item {
+            background: var(--item-dark);
+            padding: 14px 18px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-align: left;
+            font-size: 15px;
+            font-weight: 600;
+            color: #f1f5f9;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .rule-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .teams-vs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .team-pill {
+            padding: 11px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .team-pill.blue {
+            background: rgba(37, 99, 235, 0.22);
+            border: 1.5px solid #3b82f6;
+            color: #dbeafe;
+        }
+
+        .team-pill.red {
+            background: rgba(220, 38, 38, 0.22);
+            border: 1.5px solid #ef4444;
+            color: #fee2e2;
+        }
+
+        .dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+        .dot.blue { background: #3b82f6; box-shadow: 0 0 8px #3b82f6; }
+        .dot.red { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+
+        .vs-text {
+            font-weight: 900;
+            font-style: italic;
+            color: var(--gold);
+            font-size: 18px;
+        }
+
+        .lobby-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        .btn-back-setup {
+            background: transparent;
+            border: 1.5px solid #475569;
+            color: #cbd5e1;
+            padding: 13px 22px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-back-setup:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .btn-start-game {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            border: none;
+            color: #fff;
+            padding: 13px 36px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.45);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-start-game:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.65);
+        }
+
+        /* ================= SCREEN 3: GAMEPLAY ARENA ================= */
+        .arena-container {
+            display: none;
+            width: 100%;
+            max-width: 1340px;
+            flex-direction: column;
+            gap: 14px;
+            color: #fff;
+            animation: fadeIn 0.35s ease;
+        }
+
+        /* Top Header Bar */
+        .arena-topbar {
+            background: var(--card-dark);
+            border-radius: 14px;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .score-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .score-num {
+            font-size: 28px;
+            font-weight: 900;
+            padding: 4px 16px;
+            border-radius: 10px;
+        }
+
+        .score-blue .score-num { background: rgba(59, 130, 246, 0.25); color: #60a5fa; border: 1.5px solid #3b82f6; }
+        .score-red .score-num { background: rgba(239, 68, 68, 0.25); color: #f87171; border: 1.5px solid #ef4444; }
+
+        .center-hud {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .timer-box {
+            background: #11131f;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 24px;
+            font-weight: 900;
+            padding: 4px 22px;
+            border-radius: 12px;
+            letter-spacing: 1px;
+        }
+
+        .timer-box.urgent {
+            border-color: #ef4444;
+            color: #ef4444;
+            animation: pulse 0.8s infinite;
+        }
+
+        .diff-indicator {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        /* TUG OF WAR VISUAL STAGE */
+        .tug-stage {
+            position: relative;
+            width: 100%;
+            height: 210px;
+            background: linear-gradient(180deg, #1e293b 0%, #334155 62%, #475569 63%, #1e293b 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Decorative Greek/Roman Columns in Background */
+        .stage-pillars {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            opacity: 0.14;
+            pointer-events: none;
+            font-size: 64px;
+        }
+
+        /* Win Threshold Zones */
+        .zone-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            z-index: 2;
+        }
+
+        .zone-blue {
+            left: 22%;
+            background: repeating-linear-gradient(to bottom, #3b82f6 0, #3b82f6 10px, transparent 10px, transparent 20px);
+            box-shadow: 0 0 15px #3b82f6;
+        }
+
+        .zone-red {
+            right: 22%;
+            background: repeating-linear-gradient(to bottom, #ef4444 0, #ef4444 10px, transparent 10px, transparent 20px);
+            box-shadow: 0 0 15px #ef4444;
+        }
+
+        .zone-center {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            background: rgba(255, 255, 255, 0.35);
+        }
+
+        .zone-label {
+            position: absolute;
+            top: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 6px;
+            z-index: 3;
+        }
+
+        .zone-label.blue { left: 22%; transform: translateX(-50%); background: #2563eb; color: #fff; }
+        .zone-label.red { right: 22%; transform: translateX(50%); background: #dc2626; color: #fff; }
+
+        /* Moving Tug of War Assembly (Characters + Rope + Flag) */
+        .tug-assembly {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            width: 820px;
+            height: 150px;
+            transform: translateX(-50%);
+            transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .tug-assembly.heave-blue {
+            animation: heaveLeft 0.45s ease;
+        }
+
+        .tug-assembly.heave-red {
+            animation: heaveRight 0.45s ease;
+        }
+
+        .tug-svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .char-group {
+            transform-origin: bottom center;
+            animation: idleBreathe 1.4s ease-in-out infinite alternate;
+        }
+
+        .char-group.pulling {
+            animation: pullStrain 0.35s ease-in-out 2;
+        }
+
+        /* Floating Feedback Popup on Stage */
+        .stage-toast {
+            position: absolute;
+            top: 44px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .stage-toast.show {
+            opacity: 1;
+            transform: translateY(-8px);
+        }
+
+        /* SPLIT QUESTION PANELS */
+        .panels-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        @media (max-width: 860px) {
+            .panels-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .team-panel {
+            background: var(--card-dark);
+            border-radius: 18px;
+            padding: 22px;
+            position: relative;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 330px;
+            overflow: hidden;
+        }
+
+        .team-panel.blue { border-color: rgba(59, 130, 246, 0.45); }
+        .team-panel.red { border-color: rgba(239, 68, 68, 0.45); }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+        }
+
+        .panel-team-tag {
+            font-size: 15px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 8px;
+        }
+
+        .team-panel.blue .panel-team-tag { background: #2563eb; color: #fff; }
+        .team-panel.red .panel-team-tag { background: #dc2626; color: #fff; }
+
+        .q-counter {
+            font-size: 13px;
+            font-weight: 700;
+            color: #94a3b8;
+            background: var(--item-dark);
+            padding: 5px 12px;
+            border-radius: 8px;
+        }
+
+        .question-box {
+            background: var(--item-dark);
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #f8fafc;
+            margin-bottom: 16px;
+            min-height: 92px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--gold);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .option-btn {
+            background: #282c44;
+            border: 1.5px solid #3f4568;
+            color: #f1f5f9;
+            padding: 13px 14px;
+            border-radius: 12px;
+            font-size: 14.5px;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            line-height: 1.35;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            background: #363b5c;
+            border-color: #64748b;
+            transform: translateY(-1px);
+        }
+
+        .option-btn.correct-flash {
+            background: #16a34a !important;
+            border-color: #4ade80 !important;
+            color: #fff !important;
+        }
+
+        .option-btn.wrong-flash {
+            background: #dc2626 !important;
+            border-color: #f87171 !important;
+            color: #fff !important;
+        }
+
+        .key-hint {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.12);
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        /* FREEZE OVERLAY WHEN WRONG ANSWER */
+        .freeze-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(14, 116, 144, 0.85);
+            backdrop-filter: blur(4px);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .freeze-overlay.active {
+            display: flex;
+        }
+
+        .freeze-icon {
+            font-size: 52px;
+            margin-bottom: 8px;
+            animation: shake 0.4s ease;
+        }
+
+        .freeze-title {
+            font-size: 20px;
+            font-weight: 900;
+            color: #cffafe;
+            margin-bottom: 4px;
+        }
+
+        .freeze-timer {
+            font-size: 34px;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        /* ================= MODAL: QUESTION BANK EDITOR & RESULT ================= */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.78);
+            backdrop-filter: blur(4px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 16px;
+        }
+
+        .modal-backdrop.active {
+            display: flex;
+        }
+
+        .modal-card {
+            background: var(--card-dark);
+            color: #fff;
+            width: 100%;
+            max-width: 540px;
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+            animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .trophy-big {
+            font-size: 68px;
+            margin-bottom: 12px;
+        }
+
+        .winner-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .winner-sub {
+            font-size: 15px;
+            color: #cbd5e1;
+            margin-bottom: 24px;
+        }
+
+        .final-scores-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .final-team-stat {
+            background: var(--item-dark);
+            padding: 16px 26px;
+            border-radius: 14px;
+            min-width: 150px;
+        }
+
+        .final-team-stat h4 { font-size: 14px; color: #94a3b8; margin-bottom: 6px; }
+        .final-team-stat .pts { font-size: 32px; font-weight: 900; }
+
+        /* Question Bank Modal (Light) */
+        .bank-modal-card {
+            background: #fff;
+            color: #1e293b;
+            width: 100%;
+            max-width: 720px;
+            max-height: 85vh;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .bank-list {
+            overflow-y: auto;
+            flex: 1;
+            margin: 16px 0;
+            padding-right: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bank-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-size: 13.5px;
+        }
+
+        .bank-item strong { color: #0f172a; display: block; margin-bottom: 4px; }
+        .bank-item span { color: #16a34a; font-weight: 700; }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes popIn { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: scale(1); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+        @keyframes idleBreathe { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+        @keyframes pullStrain {
+            0% { transform: rotate(0deg) scaleX(1); }
+            50% { transform: rotate(-14deg) scaleX(1.05); }
+            100% { transform: rotate(0deg) scaleX(1); }
+        }
+        @keyframes heaveLeft {
+            0% { filter: drop-shadow(0 0 0px #3b82f6); }
+            50% { filter: drop-shadow(-12px 0 18px #3b82f6); }
+            100% { filter: drop-shadow(0 0 0px #3b82f6); }
+        }
+        @keyframes heaveRight {
+            0% { filter: drop-shadow(0 0 0px #ef4444); }
+            50% { filter: drop-shadow(12px 0 18px #ef4444); }
+            100% { filter: drop-shadow(0 0 0px #ef4444); }
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= MÀN HÌNH 1: CẤU HÌNH TRÒ CHƠI ================= -->
+    <div class="setup-container" id="setupScreen">
+        <div class="setup-header">Tạo Kéo Co mới</div>
+
+        <div class="form-group">
+            <label class="form-label">Tiêu đề Trò chơi:</label>
+            <input type="text" id="cfgTitle" class="form-input" value="BÀI 5: THÀNH TỰU VĂN MINH PHƯƠNG TÂY CỔ - TRUNG ĐẠI">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="section-title">
+            <span>⚙️</span> Cấu hình trò chơi
+        </div>
+
+        <div class="config-grid">
+            <!-- Cột Trái -->
+            <div>
+                <div class="form-group">
+                    <label class="form-label">Thời gian thi đấu (giây):</label>
+                    <select id="cfgTime" class="form-select">
+                        <option value="60">60 giây (Nhanh)</option>
+                        <option value="90">90 giây (Vừa)</option>
+                        <option value="120" selected>120 giây (Tiêu chuẩn)</option>
+                        <option value="180">180 giây (Mở rộng)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Số điểm chênh lệch để thắng:</label>
+                    <input type="number" id="cfgWinDiff" class="form-input" value="3" min="2" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Thời gian đóng băng khi sai (giây):</label>
+                    <select id="cfgFreeze" class="form-select">
+                        <option value="2">2 giây</option>
+                        <option value="3" selected>3 giây</option>
+                        <option value="4">4 giây</option>
+                        <option value="5">5 giây</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Tên Đội 1 (Xanh):</label>
+                    <input type="text" id="cfgBlueName" class="form-input" value="Đội Xanh">
+                </div>
+
+                <div class="form-group" style="margin-bottom:0;">
+                    <label class="form-label">Tên Đội 2 (Đỏ):</label>
+                    <input type="text" id="cfgRedName" class="form-input" value="Đội Đỏ">
+                </div>
+            </div>
+
+            <!-- Cột Phải -->
+            <div>
+                <div class="form-group">
+                    <label class="form-label">Phương thức điều khiển:</label>
+                    <div class="toggle-group" id="ctrlToggle">
+                        <button type="button" class="toggle-btn" data-val="mouse">
+                            Sử dụng chuột / chạm
+                        </button>
+                        <button type="button" class="toggle-btn active" data-val="keyboard">
+                            Sử dụng bàn phím
+                            <small>(Xanh: Q W A S - Đỏ: O P K L)</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Thứ tự câu hỏi:</label>
+                    <div class="toggle-group" id="orderToggle">
+                        <button type="button" class="toggle-btn active" data-val="random">
+                            Đảo ngẫu nhiên
+                        </button>
+                        <button type="button" class="toggle-btn" data-val="fixed">
+                            Giữ nguyên thứ tự
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Số câu hỏi mỗi đội:</label>
+                    <select id="cfgQCount" class="form-select">
+                        <option value="5">5 câu hỏi / đội</option>
+                        <option value="8" selected>8 câu hỏi / đội</option>
+                        <option value="10">10 câu hỏi / đội</option>
+                        <option value="12">12 câu hỏi / đội (Toàn bộ)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0;">
+                    <label class="form-label">Âm thanh hiệu ứng:</label>
+                    <div class="toggle-group" id="soundToggle">
+                        <button type="button" class="toggle-btn active" data-val="on">
+                            🔊 Bật âm thanh
+                        </button>
+                        <button type="button" class="toggle-btn" data-val="off">
+                            🔇 Tắt âm thanh
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="setup-footer">
+            <button type="button" class="btn-bank" onclick="openBankModal()">📚 Xem ngân hàng 24 câu hỏi Lịch sử</button>
+            <button type="button" class="btn-create" onclick="goToLobby()">Tạo phòng chơi</button>
+        </div>
+    </div>
+
+    <!-- ================= MÀN HÌNH 2: PHÒNG CHỜ & LUẬT CHƠI ================= -->
+    <div class="lobby-container" id="lobbyScreen">
+        <div class="lobby-title-wrap">
+            <div class="lobby-icon-badge">🏛️</div>
+            <div class="lobby-title" id="lobbyTitleText">BÀI 5: THÀNH TỰU VĂN MINH PHƯƠNG TÂY CỔ - TRUNG ĐẠI</div>
+        </div>
+
+        <div class="rules-list">
+            <div class="rule-item">
+                <div class="rule-icon">⏱️</div>
+                <div id="ruleTimeText">Thời gian thi đấu: 120 giây</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">🏆</div>
+                <div id="ruleWinText">Đội nào hơn 3 điểm sẽ thắng ngay lập tức</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">📋</div>
+                <div id="ruleCountText">Mỗi đội có 8 câu hỏi riêng, trả lời độc lập</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">❄️</div>
+                <div id="ruleFreezeText">Trả lời sai bị đóng băng 3 giây</div>
+            </div>
+            <div class="rule-item">
+                <div class="rule-icon">🎮</div>
+                <div id="ruleCtrlText">Chạm/bấm đáp án hoặc dùng phím (Q W A S / O P K L)</div>
+            </div>
+        </div>
+
+        <div class="teams-vs">
+            <div class="team-pill blue">
+                <span class="dot blue"></span>
+                <span id="lobbyBlueName">Đội Xanh</span>
+            </div>
+            <div class="vs-text">VS</div>
+            <div class="team-pill red">
+                <span class="dot red"></span>
+                <span id="lobbyRedName">Đội Đỏ</span>
+            </div>
+        </div>
+
+        <div class="lobby-actions">
+            <button type="button" class="btn-back-setup" onclick="backToSetup()">
+                <span>⚙️</span> Cài đặt lại
+            </button>
+            <button type="button" class="btn-start-game" onclick="startGame()">
+                <span>▶</span> Bắt đầu
+            </button>
+        </div>
+    </div>
+
+    <!-- ================= MÀN HÌNH 3: SÂN ĐẤU KÉO CO KIẾN THỨC ================= -->
+    <div class="arena-container" id="arenaScreen">
+        <!-- HUD Trên Cùng -->
+        <div class="arena-topbar">
+            <div class="score-badge score-blue">
+                <span id="hudBlueName">Đội Xanh</span>
+                <span class="score-num" id="hudBlueScore">0</span>
+            </div>
+
+            <div class="center-hud">
+                <div class="timer-box" id="hudTimer">02:00</div>
+                <div class="diff-indicator" id="hudDiffInfo">Chênh lệch thắng: 3 điểm | Hiện tại: Hòa</div>
+            </div>
+
+            <div class="score-badge score-red">
+                <span class="score-num" id="hudRedScore">0</span>
+                <span id="hudRedName">Đội Đỏ</span>
+            </div>
+        </div>
+
+        <!-- Sân Khấu Hoạt Họa Kéo Co -->
+        <div class="tug-stage">
+            <div class="stage-pillars">
+                <span>🏛️</span><span>🏺</span><span>🏛️</span><span>⚔️</span><span>🏛️</span>
+            </div>
+
+            <div class="zone-line zone-blue"></div>
+            <div class="zone-label blue" id="zoneBlueLabel">ĐÍCH XANH</div>
+
+            <div class="zone-line zone-center"></div>
+
+            <div class="zone-line zone-red"></div>
+            <div class="zone-label red" id="zoneRedLabel">ĐÍCH ĐỎ</div>
+
+            <!-- Toast phản hồi kéo dây -->
+            <div class="stage-toast" id="blueToast" style="left: 26%; background:#2563eb;">+1 Kéo mạnh!</div>
+            <div class="stage-toast" id="redToast" style="right: 26%; background:#dc2626;">+1 Kéo mạnh!</div>
+
+            <!-- Cụm Nhân Vật & Dây Thừng Di Chuyển -->
+            <div class="tug-assembly" id="tugAssembly">
+                <svg class="tug-svg" viewBox="0 0 820 150">
+                    <!-- Bóng đổ mặt đất -->
+                    <ellipse cx="410" cy="142" rx="340" ry="8" fill="rgba(0,0,0,0.35)" />
+
+                    <!-- Sợi dây thừng chính -->
+                    <line x1="95" y1="95" x2="725" y2="95" stroke="#d97706" stroke-width="8" stroke-linecap="round" />
+                    <line x1="95" y1="95" x2="725" y2="95" stroke="#fbbf24" stroke-width="3" stroke-dasharray="10 6" />
+
+                    <!-- Khăn đỏ buộc giữa dây (Mốc định vị chiến thắng) -->
+                    <polygon points="410,95 400,132 410,124 420,132" fill="#facc15" stroke="#b45309" stroke-width="1.5"/>
+                    <circle cx="410" cy="95" r="7" fill="#ef4444" stroke="#fff" stroke-width="2"/>
+
+                    <!-- ĐỘI XANH (3 Chiến binh Hy Lạp cổ đại bên trái kéo sang trái) -->
+                    <g id="blueTeamChars" class="char-group">
+                        <!-- Người 1 (Ngoài cùng bên trái) -->
+                        <g transform="translate(130, 35) rotate(-14)">
+                            <circle cx="20" cy="18" r="14" fill="#fde047" />
+                            <path d="M8,14 Q20,0 32,14 Z" fill="#2563eb" />
+                            <rect x="8" y="34" width="24" height="44" rx="8" fill="#2563eb" />
+                            <line x1="14" y1="78" x2="4" y2="108" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="26" y1="78" x2="34" y2="108" stroke="#1d4ed8" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="22" y1="46" x2="48" y2="58" stroke="#fde047" stroke-width="6" stroke-linecap="round"/>
+                        </g>
+                        <!-- Người 2 (Giữa đội xanh) -->
+                        <g transform="translate(200, 35) rotate(-12)">
+                            <circle cx="20" cy="18" r="14" fill="#fed7aa" />
+                            <path d="M8,14 Q20,0 32,14 Z" fill="#3b82f6" />
+                            <rect x="8" y="34" width="24" height="44" rx="8" fill="#3b82f6" />
+                            <line x1="14" y1="78" x2="4" y2="108" stroke="#2563eb" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="26" y1="78" x2="34" y2="108" stroke="#2563eb" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="22" y1="46" x2="48" y2="58" stroke="#fed7aa" stroke-width="6" stroke-linecap="round"/>
+                        </g>
+                        <!-- Người 3 (Đội trưởng xanh gần tâm) -->
+                        <g transform="translate(270, 35) rotate(-15)">
+                            <circle cx="20" cy="18" r="14" fill="#fde047" />
+                            <path d="M6,14 Q20,-4 34,14 Z" fill="#1d4ed8" />
+                            <rect x="8" y="34" width="24" height="44" rx="8" fill="#1d4ed8" />
+                            <line x1="14" y1="78" x2="2" y2="108" stroke="#1e40af" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="26" y1="78" x2="36" y2="108" stroke="#1e40af" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="22" y1="46" x2="50" y2="58" stroke="#fde047" stroke-width="6" stroke-linecap="round"/>
+                        </g>
+                    </g>
+
+                    <!-- ĐỘI ĐỎ (3 Chiến binh La Mã bên phải kéo sang phải) -->
+                    <g id="redTeamChars" class="char-group">
+                        <!-- Người 1 (Đội trưởng đỏ gần tâm) -->
+                        <g transform="translate(510, 35) rotate(15)">
+                            <circle cx="20" cy="18" r="14" fill="#fed7aa" />
+                            <path d="M6,14 Q20,-4 34,14 Z" fill="#b91c1c" />
+                            <rect x="8" y="34" width="24" height="44" rx="8" fill="#b91c1c" />
+                            <line x1="14" y1="78" x2="4" y2="108" stroke="#991b1b" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="26" y1="78" x2="38" y2="108" stroke="#991b1b" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="18" y1="46" x2="-10" y2="58" stroke="#fed7aa" stroke-width="6" stroke-linecap="round"/>
+                        </g>
+                        <!-- Người 2 (Giữa đội đỏ) -->
+                        <g transform="translate(580, 35) rotate(12)">
+                            <circle cx="20" cy="18" r="14" fill="#fde047" />
+                            <path d="M8,14 Q20,0 32,14 Z" fill="#ef4444" />
+                            <rect x="8" y="34" width="24" height="44" rx="8" fill="#ef4444" />
+                            <line x1="14" y1="78" x2="6" y2="108" stroke="#dc2626" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="26" y1="78" x2="36" y2="108" stroke="#dc2626" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="18" y1="46" x2="-8" y2="58" stroke="#fde047" stroke-width="6" stroke-linecap="round"/>
+                        </g>
+                        <!-- Người 3 (Ngoài cùng bên phải) -->
+                        <g transform="translate(650, 35) rotate(14)">
+                            <circle cx="20" cy="18" r="14" fill="#fed7aa" />
+                            <path d="M8,14 Q20,0 32,14 Z" fill="#dc2626" />
+                            <rect x="8" y="34" width="24" height="44" rx="8" fill="#dc2626" />
+                            <line x1="14" y1="78" x2="6" y2="108" stroke="#b91c1c" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="26" y1="78" x2="36" y2="108" stroke="#b91c1c" stroke-width="7" stroke-linecap="round"/>
+                            <line x1="18" y1="46" x2="-8" y2="58" stroke="#fed7aa" stroke-width="6" stroke-linecap="round"/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Bảng Câu Hỏi Độc Lập 2 Đội -->
+        <div class="panels-grid">
+            <!-- Bảng Đội Xanh -->
+            <div class="team-panel blue" id="bluePanel">
+                <div class="freeze-overlay" id="blueFreeze">
+                    <div class="freeze-icon">❄️</div>
+                    <div class="freeze-title">TRẢ LỜI SAI! BỊ ĐÓNG BĂNG</div>
+                    <div class="freeze-timer" id="blueFreezeSec">3s</div>
+                </div>
+
+                <div>
+                    <div class="panel-header">
+                        <span class="panel-team-tag" id="panelBlueName">Đội Xanh</span>
+                        <span class="q-counter" id="blueQCounter">Câu 1/8</span>
+                    </div>
+                    <div class="question-box" id="blueQuestionText">Đang tải câu hỏi...</div>
+                </div>
+
+                <div class="options-grid" id="blueOptions"></div>
+            </div>
+
+            <!-- Bảng Đội Đỏ -->
+            <div class="team-panel red" id="redPanel">
+                <div class="freeze-overlay" id="redFreeze">
+                    <div class="freeze-icon">❄️</div>
+                    <div class="freeze-title">TRẢ LỜI SAI! BỊ ĐÓNG BĂNG</div>
+                    <div class="freeze-timer" id="redFreezeSec">3s</div>
+                </div>
+
+                <div>
+                    <div class="panel-header">
+                        <span class="panel-team-tag" id="panelRedName">Đội Đỏ</span>
+                        <span class="q-counter" id="redQCounter">Câu 1/8</span>
+                    </div>
+                    <div class="question-box" id="redQuestionText">Đang tải câu hỏi...</div>
+                </div>
+
+                <div class="options-grid" id="redOptions"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL KẾT QUẢ ================= -->
+    <div class="modal-backdrop" id="resultModal">
+        <div class="modal-card">
+            <div class="trophy-big">🏆</div>
+            <div class="winner-title" id="winnerTitle">ĐỘI XANH CHIẾN THẮNG!</div>
+            <div class="winner-sub" id="winnerReason">Đạt cách biệt 3 điểm trước đối thủ</div>
+
+            <div class="final-scores-box">
+                <div class="final-team-stat">
+                    <h4 id="resBlueName">Đội Xanh</h4>
+                    <div class="pts" style="color:#60a5fa;" id="resBluePts">0</div>
+                </div>
+                <div class="final-team-stat">
+                    <h4 id="resRedName">Đội Đỏ</h4>
+                    <div class="pts" style="color:#f87171;" id="resRedPts">0</div>
+                </div>
+            </div>
+
+            <div class="lobby-actions">
+                <button type="button" class="btn-back-setup" onclick="resetToSetup()">⚙️ Cài đặt lại</button>
+                <button type="button" class="btn-start-game" onclick="replayGame()">🔄 Chơi lại ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODAL NGÂN HÀNG CÂU HỎI ================= -->
+    <div class="modal-backdrop" id="bankModal">
+        <div class="bank-modal-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3 style="color:#1e293b; font-size:18px;">📚 Ngân hàng 24 câu hỏi - Bài 5: Văn minh phương Tây</h3>
+                <button onclick="closeBankModal()" style="border:none; background:#e2e8f0; width:32px; height:32px; border-radius:8px; font-weight:bold; cursor:pointer;">✕</button>
+            </div>
+            <div class="bank-list" id="bankListContent"></div>
+            <button class="btn-create" onclick="closeBankModal()" style="align-self:flex-end;">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        /* ================= NGÂN HÀNG 24 CÂU HỎI BÀI 5: VĂN MINH PHƯƠNG TÂY CỔ - TRUNG ĐẠI ================= */
+        const QUESTION_BANK = [
+            {
+                q: "Hệ thống chữ cái nào do người Hy Lạp sáng tạo trên cơ sở tiếp thu chữ viết của người Phê-ni-xi?",
+                opts: ["Chữ cái Hy Lạp (24 chữ cái)", "Chữ tượng hình trên giấy Pa-pi-rút", "Chữ hình nêm trên đất sét", "Chữ Phạn (San-krít)"],
+                ans: 0
+            },
+            {
+                q: "Người La Mã cổ đại đã kế thừa chữ viết Hy Lạp và sáng tạo ra hệ thống chữ viết nào ngày nay dùng phổ biến nhất?",
+                opts: ["Chữ Xla-vơ", "Chữ La-tinh (Latin)", "Chữ Ả Rập", "Chữ Gô-tích"],
+                ans: 1
+            },
+            {
+                q: "Hai bộ sử thi nổi tiếng của Hy Lạp cổ đại gắn với tên tuổi nhà thơ Hô-me là gì?",
+                opts: ["Ramayana và Mahabharata", "I-li-át và Ô-đi-xê", "Thần khúc và Đôn Ki-hô-tê", "Ê-nê-ít và Biến hình"],
+                ans: 1
+            },
+            {
+                q: "Nhà triết học Hy Lạp cổ đại nào được xem là đại diện tiêu biểu của trường phái duy vật nguyên tử luận?",
+                opts: ["Đê-mô-crít", "Pla-tôn", "Xô-crát", "Tô-mát Đa-canh"],
+                ans: 0
+            },
+            {
+                q: "Ba nhà triết học tiêu biểu nhất của trường phái duy tâm Hy Lạp cổ đại là ai?",
+                opts: ["Ta-lét, Pi-ta-go, Ơ-clít", "Xô-crát, Pla-tôn, A-ri-xtốt", "Hê-rô-đốt, Tuy-xi-đít, Xi-xê-rông", "Đê-mô-crít, Hê-ra-clít, Ê-pi-quya"],
+                ans: 1
+            },
+            {
+                q: "Ai được mệnh danh là 'Người cha của sử học phương Tây' với tác phẩm viết về cuộc chiến tranh Hy Lạp - Ba Tư?",
+                opts: ["Hê-rô-đốt", "Tuy-xi-đít", "Ta-xít", "Plu-tác"],
+                ans: 0
+            },
+            {
+                q: "Công trình kiến trúc nổi tiếng nào ở A-ten (Hy Lạp) được xây dựng để thờ nữ thần A-tê-na?",
+                opts: ["Đấu trường Cô-li-dê", "Đền Pác-tê-nông", "Đền Pan-tê-ông", "Khải hoàn môn"],
+                ans: 1
+            },
+            {
+                q: "Công trình kiến trúc đồ sộ nào tiêu biểu cho nghệ thuật xây dựng và giải trí của La Mã cổ đại?",
+                opts: ["Đấu trường Cô-li-dê", "Vườn treo Ba-bi-lon", "Tượng thần Dớt ở Ô-lim-pi-a", "Hải đăng A-lếch-xăng-đri-a"],
+                ans: 0
+            },
+            {
+                q: "Nhà toán học Hy Lạp cổ đại nào nổi tiếng với định lí về quan hệ ba cạnh trong tam giác vuông?",
+                opts: ["Pi-ta-go", "Ác-si-mét", "Ơ-clít", "Ta-lét"],
+                ans: 0
+            },
+            {
+                q: "Nhà khoa học Hy Lạp cổ đại nào đã phát hiện ra lực đẩy của chất lỏng và nguyên lí đòn bẩy?",
+                opts: ["Ác-si-mét", "Hi-pô-crát", "A-ri-xtác", "Ptô-lê-mê"],
+                ans: 0
+            },
+            {
+                q: "Ai được tôn vinh là 'Ông tổ của y học phương Tây' với lời thề đạo đức nghề y nổi tiếng?",
+                opts: ["Hi-pô-crát", "Ga-len", "A-vi-xen", "Vê-da-li-út"],
+                ans: 0
+            },
+            {
+                q: "Bộ lịch của người La Mã cổ đại (lịch Giu-li-an) tính một năm có bao nhiêu ngày?",
+                opts: ["365 ngày và 1/4 ngày", "354 ngày theo tuần trăng", "360 ngày chia 12 tháng", "366 ngày cố định"],
+                ans: 0
+            },
+            {
+                q: "Đại hội thể thao Ô-lim-pích (Olympic) đầu tiên được tổ chức vào năm 776 TCN tại quốc gia cổ đại nào?",
+                opts: ["Hy Lạp", "La Mã", "Ai Cập", "Ba Tư"],
+                ans: 0
+            },
+            {
+                q: "Phong trào Văn hóa Phục hưng thời hậu kì trung đại khởi đầu từ quốc gia nào ở Tây Âu?",
+                opts: ["I-ta-li-a (Ý)", "Pháp", "Anh", "Tây Ban Nha"],
+                ans: 0
+            },
+            {
+                q: "Nội dung tư tưởng cốt lõi của phong trào Văn hóa Phục hưng là gì?",
+                opts: ["Chủ nghĩa nhân văn, đề cao giá trị con người", "Bảo vệ quyền lực tuyệt đối của Giáo hội", "Khôi phục chế độ chiếm hữu nô lệ", "Thần thánh hóa quyền lực phong kiến"],
+                ans: 0
+            },
+            {
+                q: "Danh họa nào thời Phục hưng là tác giả của hai kiệt tác 'Nàng Mô-na Li-sa' và 'Bữa ăn tối cuối cùng'?",
+                opts: ["Lê-ô-na đơ Vanh-xi", "Mi-ken-lăng-giơ", "Ra-pha-en", "Bốt-ti-xen-li"],
+                ans: 0
+            },
+            {
+                q: "Nhà văn, nhà soạn kịch vĩ đại người Anh thời Phục hưng với tác phẩm 'Rô-mê-ô và Giu-li-ét', 'Hăm-lét' là ai?",
+                opts: ["Uy-li-am Sếch-xpia", "Xéc-van-tét", "Đan-tê", "Ra-bơ-le"],
+                ans: 0
+            },
+            {
+                q: "Nhà thiên văn học nào thời Phục hưng đã đưa ra thuyết Nhật tâm (Mặt Trời là trung tâm vũ trụ)?",
+                opts: ["Ni-cô-lai Cô-péc-ních", "Ptô-lê-mê", "A-ri-xtốt", "Tô-mát Mo"],
+                ans: 0
+            },
+            {
+                q: "Ai là người đầu tiên chế tạo và dùng kính thiên văn để quan sát bầu trời, chứng minh thuyết Nhật tâm?",
+                opts: ["Ga-li-lê-ô Ga-li-lê", "Giô-đan-nô Bru-nô", "I-dắc Niu-tơn", "Giô-han Kép-le"],
+                ans: 0
+            },
+            {
+                q: "Hệ thống chữ số La Mã gồm 7 chữ cái cơ bản nào?",
+                opts: ["I, V, X, L, C, D, M", "A, B, C, D, E, F, G", "I, II, III, IV, V, VI, VII", "X, Y, Z, W, K, M, N"],
+                ans: 0
+            },
+            {
+                q: "Tác phẩm 'Đôn Ki-hô-tê' phê phán tàn dư lí tưởng hiệp sĩ phong kiến lỗi thời là của nhà văn nào?",
+                opts: ["Xéc-van-tét (Tây Ban Nha)", "Đan-tê (I-ta-li-a)", "Sếch-xpia (Anh)", "Mô-li-e (Pháp)"],
+                ans: 0
+            },
+            {
+                q: "Điêu khắc gia thiên tài thời Phục hưng với các tác phẩm 'Tượng Đa-vít', 'Người nô lệ bị trói' là ai?",
+                opts: ["Mi-ken-lăng-giơ", "Đô-na-ten-lô", "Lê-ô-na đơ Vanh-xi", "Béc-ni-ni"],
+                ans: 0
+            },
+            {
+                q: "Tôn giáo nào ra đời ở vùng Giê-ru-xa-lem (đế quốc La Mã) vào thế kỉ I và trở thành quốc giáo La Mã thế kỉ IV?",
+                opts: ["Thiên Chúa giáo (Cơ Đốc giáo)", "Hồi giáo", "Phật giáo", "Ấn Độ giáo"],
+                ans: 0
+            },
+            {
+                q: "Phong trào Văn hóa Phục hưng được Ph. Ăng-ghen đánh giá là gì?",
+                opts: ["Cuộc cách mạng tiến bộ vĩ đại nhất từ trước đến thời điểm đó", "Sự lặp lại nguyên xi văn hóa Hy Lạp cổ đại", "Cuộc cải cách tôn giáo trong lòng Giáo hội", "Sự phục hồi trật tự phong kiến trung cổ"],
+                ans: 0
+            }
+        ];
+
+        /* ================= TRẠNG THÁI CẤU HÌNH & TRÒ CHƠI ================= */
+        let config = {
+            title: "BÀI 5: THÀNH TỰU VĂN MINH PHƯƠNG TÂY CỔ - TRUNG ĐẠI",
+            time: 120,
+            winDiff: 3,
+            freezeSec: 3,
+            blueName: "Đội Xanh",
+            redName: "Đội Đỏ",
+            control: "keyboard", // 'mouse' | 'keyboard'
+            order: "random",     // 'random' | 'fixed'
+            qCount: 8,
+            sound: "on"
+        };
+
+        let gameState = {
+            running: false,
+            timeLeft: 120,
+            timerInterval: null,
+            blueScore: 0,
+            redScore: 0,
+            blueQList: [],
+            redQList: [],
+            blueIdx: 0,
+            redIdx: 0,
+            blueFrozen: false,
+            redFrozen: false,
+            blueFreezeTimer: null,
+            redFreezeTimer: null
+        };
+
+        /* ================= ÂM THANH WEB AUDIO API (KHÔNG CẦN FILE NGOÀI) ================= */
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playTone(type) {
+            if (config.sound !== "on") return;
+            if (audioCtx.state === "suspended") audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+            if (type === "correct") {
+                osc.type = "triangle";
+                osc.frequency.setValueAtTime(523.25, now); // C5
+                osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+                osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+                osc.start(now);
+                osc.stop(now + 0.35);
+            } else if (type === "wrong") {
+                osc.type = "sawtooth";
+                osc.frequency.setValueAtTime(180, now);
+                osc.frequency.linearRampToValueAtTime(110, now + 0.3);
+                gain.gain.setValueAtTime(0.22, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.32);
+                osc.start(now);
+                osc.stop(now + 0.32);
+            } else if (type === "win") {
+                osc.type = "triangle";
+                [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+                    osc.frequency.setValueAtTime(freq, now + i * 0.12);
+                });
+                gain.gain.setValueAtTime(0.3, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.65);
+                osc.start(now);
+                osc.stop(now + 0.65);
+            }
+        }
+
+        /* ================= XỬ LÝ NÚT TOGGLE Ở MÀN HÌNH 1 ================= */
+        function bindToggleGroup(groupId, key) {
+            const container = document.getElementById(groupId);
+            const buttons = container.querySelectorAll(".toggle-btn");
+            buttons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    buttons.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    config[key] = btn.dataset.val;
+                });
+            });
+        }
+        bindToggleGroup("ctrlToggle", "control");
+        bindToggleGroup("orderToggle", "order");
+        bindToggleGroup("soundToggle", "sound");
+
+        /* ================= CHUYỂN MÀN HÌNH 1 -> 2 ================= */
+        function goToLobby() {
+            config.title = document.getElementById("cfgTitle").value.trim() || "KÉO CO KIẾN THỨC LỊCH SỬ";
+            config.time = parseInt(document.getElementById("cfgTime").value, 10) || 120;
+            config.winDiff = Math.max(2, Math.min(10, parseInt(document.getElementById("cfgWinDiff").value, 10) || 3));
+            config.freezeSec = parseInt(document.getElementById("cfgFreeze").value, 10) || 3;
+            config.blueName = document.getElementById("cfgBlueName").value.trim() || "Đội Xanh";
+            config.redName = document.getElementById("cfgRedName").value.trim() || "Đội Đỏ";
+            config.qCount = parseInt(document.getElementById("cfgQCount").value, 10) || 8;
+
+            // Cập nhật giao diện Lobby
+            document.getElementById("lobbyTitleText").textContent = config.title;
+            document.getElementById("ruleTimeText").textContent = `Thời gian thi đấu: ${config.time} giây`;
+            document.getElementById("ruleWinText").textContent = `Đội nào hơn ${config.winDiff} điểm sẽ thắng ngay lập tức`;
+            document.getElementById("ruleCountText").textContent = `Mỗi đội có ${config.qCount} câu hỏi riêng, trả lời độc lập`;
+            document.getElementById("ruleFreezeText").textContent = `Trả lời sai bị đóng băng ${config.freezeSec} giây`;
+            document.getElementById("ruleCtrlText").textContent = config.control === "keyboard"
+                ? "Chạm/bấm đáp án hoặc dùng phím (Xanh: Q W A S - Đỏ: O P K L)"
+                : "Chạm/bấm trực tiếp vào đáp án trên màn hình để trả lời";
+
+            document.getElementById("lobbyBlueName").textContent = config.blueName;
+            document.getElementById("lobbyRedName").textContent = config.redName;
+
+            document.getElementById("setupScreen").style.display = "none";
+            document.getElementById("lobbyScreen").style.display = "block";
+            document.body.classList.add("dark-mode");
+        }
+
+        function backToSetup() {
+            document.getElementById("lobbyScreen").style.display = "none";
+            document.getElementById("setupScreen").style.display = "block";
+            document.body.classList.remove("dark-mode");
+        }
+
+        /* ================= CHUẨN BỊ CÂU HỎI & BẮT ĐẦU GAME ================= */
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function prepareTeamQuestions() {
+            let pool = QUESTION_BANK.map(item => {
+                // Trộn thứ tự 4 đáp án A, B, C, D để tránh học vẹt vị trí
+                const indexedOpts = item.opts.map((text, idx) => ({ text, isCorrect: idx === item.ans }));
+                const shuffledOpts = shuffleArray(indexedOpts);
+                return {
+                    q: item.q,
+                    opts: shuffledOpts.map(o => o.text),
+                    ans: shuffledOpts.findIndex(o => o.isCorrect)
+                };
+            });
+
+            if (config.order === "random") {
+                pool = shuffleArray(pool);
+            }
+            // Chia 2 bộ câu hỏi độc lập cho 2 đội
+            const half = Math.floor(pool.length / 2);
+            const blueSet = pool.slice(0, half);
+            const redSet = pool.slice(half);
+
+            // Đảm bảo đủ số lượng config.qCount
+            while (blueSet.length < config.qCount) blueSet.push(...pool);
+            while (redSet.length < config.qCount) redSet.push(...pool);
+
+            gameState.blueQList = blueSet.slice(0, config.qCount);
+            gameState.redQList = redSet.slice(0, config.qCount);
+        }
+
+        function startGame() {
+            clearInterval(gameState.timerInterval);
+            clearInterval(gameState.blueFreezeTimer);
+            clearInterval(gameState.redFreezeTimer);
+
+            prepareTeamQuestions();
+
+            gameState = {
+                ...gameState,
+                running: true,
+                timeLeft: config.time,
+                blueScore: 0,
+                redScore: 0,
+                blueIdx: 0,
+                redIdx: 0,
+                blueFrozen: false,
+                redFrozen: false
+            };
+
+            // Reset UI
+            document.getElementById("blueFreeze").classList.remove("active");
+            document.getElementById("redFreeze").classList.remove("active");
+            document.getElementById("hudBlueName").textContent = config.blueName;
+            document.getElementById("hudRedName").textContent = config.redName;
+            document.getElementById("panelBlueName").textContent = config.blueName;
+            document.getElementById("panelRedName").textContent = config.redName;
+            document.getElementById("zoneBlueLabel").textContent = `ĐÍCH ${config.blueName.toUpperCase()}`;
+            document.getElementById("zoneRedLabel").textContent = `ĐÍCH ${config.redName.toUpperCase()}`;
+
+            updateScoreAndRope();
+            renderQuestion("blue");
+            renderQuestion("red");
+            updateTimerDisplay();
+
+            document.getElementById("lobbyScreen").style.display = "none";
+            document.getElementById("resultModal").classList.remove("active");
+            document.getElementById("arenaScreen").style.display = "flex";
+
+            gameState.timerInterval = setInterval(() => {
+                if (!gameState.running) return;
+                gameState.timeLeft--;
+                updateTimerDisplay();
+                if (gameState.timeLeft <= 0) {
+                    endGame("Hết thời gian thi đấu!");
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const m = Math.floor(gameState.timeLeft / 60);
+            const s = gameState.timeLeft % 60;
+            const timerEl = document.getElementById("hudTimer");
+            timerEl.textContent = `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+            if (gameState.timeLeft <= 15) {
+                timerEl.classList.add("urgent");
+            } else {
+                timerEl.classList.remove("urgent");
+            }
+        }
+
+        /* ================= HIỂN THỊ CÂU HỎI & XỬ LÝ TRẢ LỜI ================= */
+        const BLUE_KEYS = ["Q", "W", "A", "S"];
+        const RED_KEYS = ["O", "P", "K", "L"];
+
+        function renderQuestion(team) {
+            const isBlue = team === "blue";
+            const idx = isBlue ? gameState.blueIdx : gameState.redIdx;
+            const list = isBlue ? gameState.blueQList : gameState.redQList;
+            const qObj = list[idx % list.length]; // Xoay vòng nếu hết bộ câu trước khi hết giờ
+
+            document.getElementById(isBlue ? "blueQCounter" : "redQCounter").textContent =
+                `Câu ${(idx % config.qCount) + 1}/${config.qCount}`;
+            document.getElementById(isBlue ? "blueQuestionText" : "redQuestionText").textContent = qObj.q;
+
+            const optsContainer = document.getElementById(isBlue ? "blueOptions" : "redOptions");
+            optsContainer.innerHTML = "";
+
+            const keyLabels = isBlue ? BLUE_KEYS : RED_KEYS;
+
+            qObj.opts.forEach((optText, optIdx) => {
+                const btn = document.createElement("button");
+                btn.type = "button";
+                btn.className = "option-btn";
+                btn.dataset.optIdx = optIdx;
+
+                const hintBadge = config.control === "keyboard"
+                    ? `<span class="key-hint">${keyLabels[optIdx]}</span>`
+                    : `<span class="key-hint">${String.fromCharCode(65 + optIdx)}</span>`;
+
+                btn.innerHTML = `${hintBadge}<span>${optText}</span>`;
+                btn.onclick = () => handleAnswer(team, optIdx, btn);
+                optsContainer.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(team, chosenIdx, btnElement) {
+            if (!gameState.running) return;
+            const isBlue = team === "blue";
+            if ((isBlue && gameState.blueFrozen) || (!isBlue && gameState.redFrozen)) return;
+
+            const idx = isBlue ? gameState.blueIdx : gameState.redIdx;
+            const list = isBlue ? gameState.blueQList : gameState.redQList;
+            const qObj = list[idx % list.length];
+
+            const panelOpts = document.getElementById(isBlue ? "blueOptions" : "redOptions").querySelectorAll(".option-btn");
+            const targetBtn = btnElement || panelOpts[chosenIdx];
+
+            if (chosenIdx === qObj.ans) {
+                // TRẢ LỜI ĐÚNG -> KÉO DÂY VỀ PHÍA ĐỘI MÌNH
+                playTone("correct");
+                if (targetBtn) targetBtn.classList.add("correct-flash");
+
+                if (isBlue) {
+                    gameState.blueScore++;
+                    gameState.blueIdx++;
+                } else {
+                    gameState.redScore++;
+                    gameState.redIdx++;
+                }
+
+                triggerPullAnimation(team);
+                updateScoreAndRope();
+
+                // Kiểm tra điều kiện thắng cách biệt ngay lập tức
+                const diff = gameState.blueScore - gameState.redScore;
+                if (Math.abs(diff) >= config.winDiff) {
+                    setTimeout(() => {
+                        endGame(`Đạt cách biệt ${config.winDiff} điểm trước đối thủ!`);
+                    }, 350);
+                    return;
+                }
+
+                setTimeout(() => {
+                    if (gameState.running) renderQuestion(team);
+                }, 260);
+
+            } else {
+                // TRẢ LỜI SAI -> ĐÓNG BĂNG ĐỘI ĐÓ
+                playTone("wrong");
+                if (targetBtn) targetBtn.classList.add("wrong-flash");
+                freezeTeam(team);
+            }
+        }
+
+        function freezeTeam(team) {
+            const isBlue = team === "blue";
+            if (isBlue) gameState.blueFrozen = true;
+            else gameState.redFrozen = true;
+
+            const overlay = document.getElementById(isBlue ? "blueFreeze" : "redFreeze");
+            const secLabel = document.getElementById(isBlue ? "blueFreezeSec" : "redFreezeSec");
+            let remain = config.freezeSec;
+
+            secLabel.textContent = `${remain}s`;
+            overlay.classList.add("active");
+
+            const interval = setInterval(() => {
+                remain--;
+                if (remain > 0) {
+                    secLabel.textContent = `${remain}s`;
+                } else {
+                    clearInterval(interval);
+                    overlay.classList.remove("active");
+                    if (isBlue) {
+                        gameState.blueFrozen = false;
+                        gameState.blueIdx++; // Chuyển sang câu tiếp theo sau khi hết đóng băng
+                    } else {
+                        gameState.redFrozen = false;
+                        gameState.redIdx++;
+                    }
+                    if (gameState.running) renderQuestion(team);
+                }
+            }, 1000);
+
+            if (isBlue) gameState.blueFreezeTimer = interval;
+            else gameState.redFreezeTimer = interval;
+        }
+
+        /* ================= CHUYỂN ĐỘNG KÉO CO THEO ĐIỂM SỐ ================= */
+        function updateScoreAndRope() {
+            document.getElementById("hudBlueScore").textContent = gameState.blueScore;
+            document.getElementById("hudRedScore").textContent = gameState.redScore;
+
+            const diff = gameState.blueScore - gameState.redScore; // Dương: Xanh dẫn, Âm: Đỏ dẫn
+            const diffText = diff === 0
+                ? "Hòa nhau"
+                : (diff > 0 ? `${config.blueName} dẫn +${diff}` : `${config.redName} dẫn +${Math.abs(diff)}`);
+            document.getElementById("hudDiffInfo").textContent = `Chênh lệch thắng: ${config.winDiff} điểm | ${diffText}`;
+
+            // Tính toán độ lệch pixel của sợi dây (tối đa +-230px tới vạch đích)
+            const maxShiftPx = 230;
+            const ratio = Math.max(-1, Math.min(1, diff / config.winDiff));
+            const shiftX = -ratio * maxShiftPx; // Đội Xanh bên trái nên kéo âm X
+
+            const assembly = document.getElementById("tugAssembly");
+            assembly.style.transform = `translateX(calc(-50% + ${shiftX}px))`;
+        }
+
+        function triggerPullAnimation(team) {
+            const assembly = document.getElementById("tugAssembly");
+            const chars = document.getElementById(team === "blue" ? "blueTeamChars" : "redTeamChars");
+            const toast = document.getElementById(team === "blue" ? "blueToast" : "redToast");
+
+            assembly.classList.remove("heave-blue", "heave-red");
+            chars.classList.remove("pulling");
+            void assembly.offsetWidth; // Force reflow
+
+            assembly.classList.add(team === "blue" ? "heave-blue" : "heave-red");
+            chars.classList.add("pulling");
+
+            toast.classList.add("show");
+            setTimeout(() => toast.classList.remove("show"), 650);
+        }
+
+        /* ================= ĐIỀU KHIỂN BÀN PHÍM (Q W A S / O P K L) ================= */
+        document.addEventListener("keydown", (e) => {
+            if (!gameState.running || config.control !== "keyboard") return;
+            const key = e.key.toUpperCase();
+
+            const blueIdx = BLUE_KEYS.indexOf(key);
+            if (blueIdx !== -1) {
+                handleAnswer("blue", blueIdx, null);
+                return;
+            }
+
+            const redIdx = RED_KEYS.indexOf(key);
+            if (redIdx !== -1) {
+                handleAnswer("red", redIdx, null);
+            }
+        });
+
+        /* ================= KẾT THÚC TRẬN ĐẤU ================= */
+        function endGame(reason) {
+            gameState.running = false;
+            clearInterval(gameState.timerInterval);
+            clearInterval(gameState.blueFreezeTimer);
+            clearInterval(gameState.redFreezeTimer);
+            playTone("win");
+
+            const b = gameState.blueScore;
+            const r = gameState.redScore;
+            let title = "HAI ĐỘI HÒA NHAU!";
+            if (b > r) title = `${config.blueName.toUpperCase()} CHIẾN THẮNG!`;
+            else if (r > b) title = `${config.redName.toUpperCase()} CHIẾN THẮNG!`;
+
+            document.getElementById("winnerTitle").textContent = title;
+            document.getElementById("winnerReason").textContent = reason;
+            document.getElementById("resBlueName").textContent = config.blueName;
+            document.getElementById("resRedName").textContent = config.redName;
+            document.getElementById("resBluePts").textContent = b;
+            document.getElementById("resRedPts").textContent = r;
+
+            document.getElementById("resultModal").classList.add("active");
+        }
+
+        function replayGame() {
+            startGame();
+        }
+
+        function resetToSetup() {
+            document.getElementById("resultModal").classList.remove("active");
+            document.getElementById("arenaScreen").style.display = "none";
+            document.getElementById("setupScreen").style.display = "block";
+            document.body.classList.remove("dark-mode");
+        }
+
+        /* ================= XEM NGÂN HÀNG CÂU HỎI ================= */
+        function openBankModal() {
+            const container = document.getElementById("bankListContent");
+            container.innerHTML = QUESTION_BANK.map((item, i) => `
+                <div class="bank-item">
+                    <strong>Câu ${i + 1}: ${item.q}</strong>
+                    <span>✓ Đáp án đúng: ${item.opts[item.ans]}</span>
+                </div>
+            `).join("");
+            document.getElementById("bankModal").classList.add("active");
+        }
+
+        function closeBankModal() {
+            document.getElementById("bankModal").classList.remove("active");
+        }
+    </script>
+</body>
+</html>
